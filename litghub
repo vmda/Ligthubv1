@@ -3,7 +3,7 @@ local Window = Library.CreateLib("ligthub V1 BETA VERSION --- Credits: theballsy
 local Main = Window:NewTab("Main")
 local AdminScripts = Main:NewSection("Admin")
 local SideScripts = Window:NewTab("Side Scripts")
-local ScriptsSection1 = SideScripts:NewSection("Scripts")
+local ScriptSection1 = SideScripts:NewSection("Scripts")
 local Char = Window:NewTab("Character")
 local Charactersection = Char:NewSection("Scripts")
 local GAMESWINDOW = Window:NewTab("Games")
@@ -13,6 +13,7 @@ local PETSIMSECTION = GAMESWINDOW:NewSection("Pet Simulator X")
 local FUNKYFRIDAYSECTION = GAMESWINDOW:NewSection("Funky Friday")
 local ABJSECTION = GAMESWINDOW:NewSection("ABJ")
 local EXPLORERSECTION = Main:NewSection("Explorers")
+local SERVERSECTION = SideScripts:NewSection("Server")
 -- ADMIN
 AdminScripts:NewDropdown("Admin Scripts", "Contains a selection of admin scripts (will update)", {"Infinite Yield", "CMD-X"}, function(currentOption)
     if currentOption == "Infinite Yield" then
@@ -23,11 +24,13 @@ AdminScripts:NewDropdown("Admin Scripts", "Contains a selection of admin scripts
 end)
 
 --SIDESCRIPTS
-ScriptsSection1:NewButton("Anti AFK", "Doesn't kick you from the game after 20 minutes", function()
+ScriptSection1:NewButton("Anti AFK", "Doesn't kick you from the game after 20 minutes", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/antiafkscirpt/main/antiafking'))()
 end)
 
-
+ScriptSection1:NewButton("Invisibility Toggle (Press E)", "Lets you turn invisible until you press E again", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/ivniusiblitly/main/invis'))()
+end)
 
 
 -- CHARACTER
@@ -46,8 +49,6 @@ end)
 Charactersection:NewSlider("Jump Power", "Determines how high the player can jump", 250, 50, function(v)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
 end)
-
-
 
 -- YBA
 YBAGUISECTION:NewDropdown("YBA TAB", "Only works in Your Bizarre Adventure", {"YBA", "MidnightGUI"}, function(currentOption)
@@ -102,4 +103,10 @@ EXPLORERSECTION:NewDropdown("Explorers", "Dex Explorers", {"Dex", "Dark Dex", "R
      elseif currentOption == "Remote Spy" then
         loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/remotespy/main/rs'))()
     end
+end)
+
+
+--Server Finder
+SERVERSECTION:NewButton("Server Finder", "Find different servers to join", function()
+    print("not working yet")
 end)
