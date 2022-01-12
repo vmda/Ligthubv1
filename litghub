@@ -12,6 +12,7 @@ local UNIVERSALSECTION = GAMESWINDOW:NewSection("Universal")
 local PETSIMSECTION = GAMESWINDOW:NewSection("Pet Simulator X")
 local FUNKYFRIDAYSECTION = GAMESWINDOW:NewSection("Funky Friday")
 local ABJSECTION = GAMESWINDOW:NewSection("ABJ")
+local EXPLORERSECTION = Main:NewSection("Explorers")
 -- ADMIN
 AdminScripts:NewDropdown("Admin Scripts", "Contains a selection of admin scripts (will update)", {"Infinite Yield", "CMD-X"}, function(currentOption)
     if currentOption == "Infinite Yield" then
@@ -91,3 +92,14 @@ ABJSECTION:NewButton("A Bizarre Journey Spec", "Best to use with standless", fun
     loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/abjscriptspec/main/abj%27'))()
 end)
 
+
+--Explorerswi
+EXPLORERSECTION:NewDropdown("Explorers", "Dex Explorers", {"Dex", "Dark Dex", "Remote Spy (USE F9/ DEV CONSOLE)"}, function(currentOption)
+    if currentOption == "Dex" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/dexexplorer/main/dex'))()
+     elseif currentOption == "Dark Dex" then
+        loadstring(game:HttpGet(('https://pastebin.com/raw/Ht4zRXj8'),true))()
+     elseif currentOption == "Remote Spy" then
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/remotespy/main/rs'))()
+    end
+end)
