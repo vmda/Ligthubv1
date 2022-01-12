@@ -11,6 +11,7 @@ local YBAGUISECTION = GAMESWINDOW:NewSection("YBA")
 local UNIVERSALSECTION = GAMESWINDOW:NewSection("Universal")
 local PETSIMSECTION = GAMESWINDOW:NewSection("Pet Simulator X")
 local FUNKYFRIDAYSECTION = GAMESWINDOW:NewSection("Funky Friday")
+local ABJSECTION = GAMESWINDOW:NewSection("ABJ")
 -- ADMIN
 AdminScripts:NewDropdown("Admin Scripts", "Contains a selection of admin scripts (will update)", {"Infinite Yield", "CMD-X"}, function(currentOption)
     if currentOption == "Infinite Yield" then
@@ -85,8 +86,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-frid
 end)
 
 
---MISC
-
-YBAGUISECTION:NewTextBox("All of these scripts belong to the respectful owner.", "", function(txt)
-	print(txt)
+--ABJ
+ABJSECTION:NewButton("A Bizarre Journey Spec", "Best to use with standless", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/abjscriptspec/main/abj%27'))()
 end)
+
