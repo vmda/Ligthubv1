@@ -8,7 +8,6 @@ local Char = Window:NewTab("Character")
 local Charactersection = Char:NewSection("Scripts")
 local GAMESWINDOW = Window:NewTab("Games")
 local YBAGUISECTION = GAMESWINDOW:NewSection("YBA")
-local MM2SECTION = GAMESWINDOW:NewSection("MM2")
 local UNIVERSALSECTION = GAMESWINDOW:NewSection("Universal")
 -- ADMIN
 AdminScripts:NewDropdown("Admin Scripts", "Contains a selection of admin scripts (will update)", {"Infinite Yield", "CMD-X"}, function(currentOption)
