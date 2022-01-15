@@ -5,7 +5,7 @@ local AdminScripts = Main:NewSection("Admin")
 local SideScripts = Window:NewTab("Side Scripts")
 local ScriptSection1 = SideScripts:NewSection("Scripts")
 local Char = Window:NewTab("Character")
-local Charactersection = Char:NewSection("Scripts")
+local Charactersection = Char:NewSection("Character")
 local GAMESWINDOW = Window:NewTab("Games")
 local YBAGUISECTION = GAMESWINDOW:NewSection("YBA")
 local UNIVERSALSECTION = GAMESWINDOW:NewSection("Universal")
@@ -14,6 +14,8 @@ local FUNKYFRIDAYSECTION = GAMESWINDOW:NewSection("Funky Friday")
 local ABJSECTION = GAMESWINDOW:NewSection("ABJ")
 local EXPLORERSECTION = Main:NewSection("Explorers")
 local SERVERSECTION = SideScripts:NewSection("Server")
+local ThemesTab = Window:NewTab("Themes")
+local ThemesSection = ThemesTab:NewSection("Themes")
 -- ADMIN
 AdminScripts:NewDropdown("Admin Scripts", "Contains a selection of admin scripts (will update)", {"Infinite Yield", "CMD-X"}, function(currentOption)
     if currentOption == "Infinite Yield" then
@@ -32,10 +34,13 @@ ScriptSection1:NewButton("Invisibility Toggle (Press E)", "Lets you turn invisib
     loadstring(game:HttpGet('https://raw.githubusercontent.com/vmda/ivniusiblitly/main/invis'))()
 end)
 
+ScriptSection1:NewButton("Fullbright", "Lets you see clearly in dark spaces", function()
+    loadstring(game.HttpGet('https://raw.githubusercontent.com/vmda/fullbrihgt/main/fb'))()
+end)
 
 -- CHARACTER
 Charactersection:NewButton("Infinite Jump", "Gives you a GUI that allows you to toggle inf jump", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/vmda/infjump/main/infjumpagain "))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/vmda/infjump/main/infjumpagain"))()
 end)
 
 Charactersection:NewButton("Noclip", "Noclip lets you phase through walls", function()
@@ -49,6 +54,28 @@ end)
 Charactersection:NewSlider("Jump Power", "Determines how high the player can jump", 250, 50, function(v)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
 end)
+
+
+Charactersection:NewSlider("FOV Slider", "Lets you change your Field of view", 120, 70, function(v)
+    workspace.CurrentCamera.FieldOfView = v
+end)
+
+Charactersection:NewSlider("Hip Height", "Lets you change how high your character stands", 40, 2, function(v)
+    game.Players.LocalPlayer.Character.Humanoid.HipHeight = v
+end)
+
+Charactersection:NewButton("Sit", "Toggles the sit animation", function()
+    game.Players.LocalPlayer.Character.Humanoid.Sit = true
+end)
+
+
+--[[Charactersection:NewButton("R15 To R6", "Changes your rig type to R6", function()
+    if game.Players.LocalPlayer.Character.Humanoid.RigType == "R15" then
+        game.Players.LocalPlayer.Character.Humanoid.RigType = "R6"
+    end
+end)]]--
+
+
 
 -- YBA
 YBAGUISECTION:NewDropdown("YBA TAB", "Only works in Your Bizarre Adventure", {"YBA", "MidnightGUI"}, function(currentOption)
@@ -109,4 +136,26 @@ end)
 --Server Finder
 SERVERSECTION:NewButton("Server Finder", "Find different servers to join", function()
     print("not working yet")
+end)
+
+
+
+--Themes
+
+local colors = {
+    SchemeColor = Color3.fromRGB(0,255,255),
+    Background = Color3.fromRGB(0, 0, 0),
+    Header = Color3.fromRGB(0, 0, 0),
+    TextColor = Color3.fromRGB(255,255,255),
+    ElementColor = Color3.fromRGB(20, 20, 20)
+}
+
+for theme, color in pairs(themes) do
+    Section:NewColorPicker(theme, "Change your "..theme, color, function(color3)
+        Library:ChangeColor(theme, color3)
+    end)
+end
+
+ThemesSection:NewColorPicker("Color Text", "Color Info", Color3.fromRGB(0,0,0), function(color)
+    print(color)
 end)
